@@ -3,6 +3,9 @@
     <head>
         <link href="//static.winandjake.com/app/app.js" rel="modulepreload" as="script">
         <link href="//static.winandjake.com/app/chunk-vendors.js" rel="modulepreload" as="script">
+        <style>
+            {CustomCSS}
+        </style>
     </head>
     <body>
         <div id="app">
@@ -55,9 +58,9 @@
                     {/block:NextPage}
                     {/block:Pagination}
                     total_pages: {JSTotalPages},
-                    {block:SubmissionEnabled}
+                    {block:SubmissionsEnabled}
                     submit_label: {JSSubmitLabel},
-                    {/block:SubmissionEnabled}
+                    {/block:SubmissionsEnabled}
                     {block:AskEnabled}
                     ask_label: {JSAskLabel},
                     {/block:AskEnabled}
