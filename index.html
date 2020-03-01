@@ -3,6 +3,7 @@
     <head>
         <link href="//static.winandjake.com/app/app.js" rel="modulepreload" as="script">
         <link href="//static.winandjake.com/app/chunk-vendors.js" rel="modulepreload" as="script">
+        <link rel="stylesheet" href="https://static.tumblr.com/iyt3evq/0hTptw75e/famfamfam-flags.css">
         <style>
             {CustomCSS}
         </style>
@@ -103,6 +104,12 @@
                         post_id: {JSPostID},
                         tags_as_classes: {JSTagsAsClasses},
                         notes_partial: {JSPostNotesURL},
+                        {block:NoteCount}
+                        note_count: {
+                            plain: {JSNoteCount},
+                            with_label: {JSNoteCountWithLabel}
+                        },
+                        {/block:NoteCount}
                         {block:Date}
                         date: {
                             day_of_month: {JSDayOfMonth},
@@ -132,6 +139,10 @@
                             relative_time: {JSTimeAgo}
                         },
                         {/block:Date}
+                        buttons: {
+                          like: {JSLikeButton size="20" color="white"},
+                          reblog: {JSReblogButton size="20" color="white"}
+                        },
                         npf: {NPF}
                     },
                 {/block:Posts}
