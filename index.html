@@ -10,6 +10,7 @@
         <link href="https://static.winandjake.com/app/css/chunk-vendors.css" rel="preload" as="style">
         <link href="https://static.winandjake.com/app/js/app.js" rel="preload" as="script">
         <link href="https://static.winandjake.com/app/js/chunk-vendors.js" rel="preload" as="script">
+        <link href="https://static.winandjake.com/app/js/infinitescroll.js" rel="preload" as="script">
         
         <!--Favicon-->
         <link href="https://static.winandjake.com/app/favicon.ico" rel="icon">
@@ -25,12 +26,70 @@
     <body>
         <noscript>
             <p>
-                <strong>We're sorry but winandjake-vue doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+                <strong>We're sorry but our blog doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
             </p>
         </noscript>
       
         <div id="app">
         </div>
+        
+        <script data-blog-posts>
+        function getPosts() {
+            return [
+            {block:Posts}
+                {
+                    post_type: {JSPostType},
+                    permalink: {JSPermalink},
+                    short_url: {JSShortURL},
+                    embed_url: {JSEmbedURL},
+                    post_id: {JSPostID},
+                    tags_as_classes: {JSTagsAsClasses},
+                    notes_partial: {JSPostNotesURL},
+                    {block:NoteCount}
+                    note_count: {
+                        plain: {JSNoteCount},
+                        with_label: {JSNoteCountWithLabel}
+                    },
+                    {/block:NoteCount}
+                    {block:Date}
+                    date: {
+                        day_of_month: {JSDayOfMonth},
+                        day_of_month_zero: {JSDayOfMonthWithZero},
+                        day_of_week: {JSDayOfWeek},
+                        short_day_of_week: {JSShortDayOfWeek},
+                        day_of_week_number: {JSDayOfWeekNumber},
+                        day_of_month_suffix: {JSDayOfMonthSuffix},
+                        day_of_year: {JSDayOfYear},
+                        week_of_year: {JSWeekOfYear},
+                        month: {JSMonth},
+                        short_month: {JSShortMonth},
+                        month_number: {JSMonthNumber},
+                        month_number_zero: {JSMonthNumberWithZero},
+                        year: {JSYear},
+                        short_year: {JSShortYear},
+                        ampm: {JSAmPm},
+                        ampm_capital: {JSCapitalAmPm},
+                        h12: {JS12Hour},
+                        h24: {JS24Hour},
+                        h12_zero: {JS12HourWithZero},
+                        h24_zero: {JS24HourWithZero},
+                        min: {JSMinutes},
+                        sec: {JSSeconds},
+                        beat: {JSBeats},
+                        time: {JSTimestamp},
+                        relative_time: {JSTimeAgo}
+                    },
+                    {/block:Date}
+                    buttons: {
+                      like: {JSLikeButton size="20" color="white"},
+                      reblog: {JSReblogButton size="20" color="white"}
+                    },
+                    npf: {NPF}
+                },
+            {/block:Posts}
+            ];
+        }
+        </script>
 
         <script>
         window.blog = {
@@ -114,62 +173,10 @@
                 {/block:NextPost}
                 {/block:PermalinkPagination}
             },
-            posts: [
-            {block:Posts}
-                {
-                    post_type: {JSPostType},
-                    permalink: {JSPermalink},
-                    short_url: {JSShortURL},
-                    embed_url: {JSEmbedURL},
-                    post_id: {JSPostID},
-                    tags_as_classes: {JSTagsAsClasses},
-                    notes_partial: {JSPostNotesURL},
-                    {block:NoteCount}
-                    note_count: {
-                        plain: {JSNoteCount},
-                        with_label: {JSNoteCountWithLabel}
-                    },
-                    {/block:NoteCount}
-                    {block:Date}
-                    date: {
-                        day_of_month: {JSDayOfMonth},
-                        day_of_month_zero: {JSDayOfMonthWithZero},
-                        day_of_week: {JSDayOfWeek},
-                        short_day_of_week: {JSShortDayOfWeek},
-                        day_of_week_number: {JSDayOfWeekNumber},
-                        day_of_month_suffix: {JSDayOfMonthSuffix},
-                        day_of_year: {JSDayOfYear},
-                        week_of_year: {JSWeekOfYear},
-                        month: {JSMonth},
-                        short_month: {JSShortMonth},
-                        month_number: {JSMonthNumber},
-                        month_number_zero: {JSMonthNumberWithZero},
-                        year: {JSYear},
-                        short_year: {JSShortYear},
-                        ampm: {JSAmPm},
-                        ampm_capital: {JSCapitalAmPm},
-                        h12: {JS12Hour},
-                        h24: {JS24Hour},
-                        h12_zero: {JS12HourWithZero},
-                        h24_zero: {JS24HourWithZero},
-                        min: {JSMinutes},
-                        sec: {JSSeconds},
-                        beat: {JSBeats},
-                        time: {JSTimestamp},
-                        relative_time: {JSTimeAgo}
-                    },
-                    {/block:Date}
-                    buttons: {
-                      like: {JSLikeButton size="20" color="white"},
-                      reblog: {JSReblogButton size="20" color="white"}
-                    },
-                    npf: {NPF}
-                },
-            {/block:Posts}
-            ]
+            posts: getPosts()
         };
         </script>
         <script src="https://static.winandjake.com/app/js/chunk-vendors.js"></script>
         <script src="https://static.winandjake.com/app/js/app.js"></script>
-    </body>
+        <script src="https://static.winandjake.com/app/js/infinitescroll.js"></script>
 </html>
